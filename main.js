@@ -1,8 +1,9 @@
-let box = document.getElementsByTagName('div')
+let box = document.getElementsByTagName('div');
+let timer = document.getElementById('seconds');
 
 
 function count(){
-     let i = 0
+    let i = 0;
     setInterval(() => {
         if(i == box.length){
             i=0;
@@ -13,9 +14,13 @@ function count(){
         box[i].style.opacity = '1';
         i++;
         console.log(i,box.length);
-    }, 2000);
+    }, 10000);
     
+    let seconds = 10;
+    setInterval(() => {
+        if(seconds > 0) seconds--; else seconds = 10;
+        timer.innerText = seconds;
+    }, 1000)
 }
 
-count()
-
+count();
